@@ -1,74 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>BladeDragan</title>
-<meta name="description" content="">
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style type="text/css">
-    footer {
-        text-align: left;
-        padding: 3px 0px;
-        background-color: #333;
-        border-top: solid white;
-        color: white;
-    }
-
-    html {
-        scroll-behavior: smooth !important;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BladeDragan</title>
+    <meta name="description" content="BladeDragan - streamer, content creator. Find all my socials and gaming stats here.">
+    <link rel="preconnect" href = "https://fonts.googleapis.com">
+    <link rel="preconnect" href = "https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 <body>
-    <div class="header" id="header">
-        <div class="header-top">
-            <a href="#imagebox" style="text-decoration: none;"><h1>BladeDragan&nbsp;</h1></a>
-            <!-- <div class="searchbar">
-                <form id="search-form">
-                    <input type="text" id="text" placeholder="Search..">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div> -->
-        </div>
-        <!-- <div id="navbar">
-            <div class="nav-bar" id="topnav">
-                <a href="#about" class="nav-link"><i class="fas fa-circle-user"></i> ABOUT</a>
-            </div>
-            <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
-                <i style="color:black" class="fas fa-bars"></i>
-            </a>
-        </div> -->
-    </div>
-    <div class="footer">
-        <!--Footer of page-->
-        <footer>
-             <div id="footerSitemap">
-                <p><b>Sitemap</b></p>
-                <a href="#header">Back to Top</a><br>
-                <a href="#"></a><br>
-                <a href="#"></a><br>
-                <a href="#"></a><br>
-                <a href="#"></a>
-             </div>
 
-               <div id="footerContactDetails">
-                <p><a style="color:white; text-decoration:underline" href="mailto:contact@mhockham.co.uk">Contact Me!</a><br></p>
-               </div>
-                <br>
-                <div id="footerMedia" display="inline-block">
-                    <b>Follow me!</b><br>
-                    <a href="https://www.youtube.com/@bladedragan"><i class="fa-brands fa-youtube" width="20px" alt=""></i></a>
-                    <a href="https://www.youtube.com/@baldedragan"><i class="fa-brands fa-youtube" width="20px" alt=""></i></a>
-                    <a href="https://www.twitch.com/@bladedragan"><i class="fa-brands fa-twitch" width="20px" alt=""></i></a>
-                    <a href="https://www.instagram.com/@bladedragan"><i class="fa-brands fa-instagram" width="20px" alt=""></i></a>
-                    <a href="https://www.x.com/@bladedragan_"><i class="fa-brands fa-x-twitter" width="20px" alt=""></i></a>
-                </div>
-                </p>
+    <!-- Scroll progress bar -->
+     <div id="scrollBar"></div>
+
+     <!-- Toast notification -->
+      <div class="toast" id="toast" role="alert" aria-live="polite">
+        <button class="toast-close" id="toastClose" aria-label="Dismiss">X</button>
+        <div class="toast-icon" id="toastIcon">🔴</div>
+        <div class="toast-body">
+            <div class="toast-title" id="toastTitle">BladeDragan is LIVE</div>
+            <div class="toast-msg" id="toastMsg">Streaming on Twitch right now - come watch!</div>
+            <a href="#" class="toast-cta" id="toastCta" target="_blank" rel="noopener">
+                <i class="fa-brands fa-twitch"></i>
+            </a>
+        </div>
+      </div>
+
+    <!-- Navigation -->
+     <nav class="nav">
+        <span class="nav-logo">
+            <img class="nav-logo-img" src="assets/profile_picture.png" 
+            alt="BladeDragan">
+        </span>
+        <ul class="nav-links">
+            <li><a href="#socials">Socials</a></li>
+            <li><a href="#ranks">Ranks</a></li>
+            <li><a href="socials/index.html">Links</a></li>
+        </ul>
+        <a href="https://www.twitch.tv/bladedragan" target="_blank" rel="noopener" class="nav-live-badge" id="navLiveBadge">
+            <span class="live-dot"></span> LIVE
+        </a>
+     </nav>
+
+     <!-- Hero -->
+     <section class="hero">
+        <div class="hero-glow" id="heroGlow"></div>
+        <div class="hero-glow-2"></div>
+        <div class="hero-inner">
+
+            <div class="hero-avatar fade-up">
+                <img src="assets/profile_picture.png" alt="BladeDragan profile picture">
             </div>
-            <p class="text-center text-body-secondary" id="footerCopyright"><a style="color: white;">© 2026 BladeDragan :)</a></p> <!--Copyright for the page-->
-    </div>
-<script src="javascript.js" defer></script>
+
+            <div class="hero-text">
+                <p class="hero-eyebrow fade-up delay-1">Streamer &amp; Content Creator</p>
+                <h1 class="hero-title fade-up delay-2">BladeDragan</h1>
+                <p class="hero-sub fade-up delay-3">Gaming, streaming and content across YouTube, Twitch, TikTok and more. Come join the community.</p>
+
+                <div class="hero-ctas fade-up delay-4">
+                    <!-- Animated carousel-->
+                     <a id="carouselBtn" href="https://www.twitch.tv/bladedragan" target="_blank" rel="noopener" class="btn-carousel">
+                        <div class="btn-carousel-inner" id="carouselInner">
+                            <i id="carouselIcon" class="fa-brands fa-twitch"></i>
+                            <span id="carouselLabel">Watch on Twitch</span>
+                        </div>
+                    </a>
+
+                    <!-- Carousel dots -->
+                     <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+            </div>
+        </div>
+     </section>
+
+     <hr class="divider">
+
+     <!-- Socials -->
+      <div class="section" id="socials">
+        <p class="section-label">Find me online</p>
+        <h2 class="section-title">My Socials</h2>
+
+        <div class="socials-grid">
+
+            <a href="https://www.youtube.com/@bladedragan" target="_blank" rel="noopener" class="social-card card-youtube">
+                <i class="fa-brands fa-youtube social-icon"></i>
+                <div class="social-name">Main YouTube</div>
+                <div class="social-handle">@BladeDragan</div>
+                <div class="social-arrow">Visit channel
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/@baldedragan" target="_blank" rel="noopener" class="social-card card-youtube">
+                <i class="fa-brands fa-youtube social-icon"></i>
+                <div class="social-name">Shorts & VOD YouTube</div>
+                <div class="social-handle">@BaldeDragan</div>
+                <div class="social-arrow">Visit channel
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+           <a href="https://www.twitch.tv/bladedragan" target="_blank" rel="noopener" class="social-card card-twitch">
+                <i class="fa-brands fa-twitch social-icon"></i>
+                <div class="social-name">Twitch</div>
+                <div class="social-handle">BladeDragan</div>
+                <div class="social-arrow">Watch live
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="https://www.tiktok.com/@bladedragan" target="_blank" rel="noopener" class="social-card card-tiktok">
+                <i class="fa-brands fa-tiktok social-icon"></i>
+                <div class="social-name">TikTok</div>
+                <div class="social-handle">BladeDragan</div>
+                <div class="social-arrow">Visit profile
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="https://www.instagram.com/@bladedragan" target="_blank" rel="noopener" class="social-card card-instagram">
+                <i class="fa-brands fa-instagram social-icon"></i>
+                <div class="social-name">Instagram</div>
+                <div class="social-handle">BladeDragan</div>
+                <div class="social-arrow">Visit profile
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+            
+            <a href="https://www.x.com/@bladedragan_" target="_blank" rel="noopener" class="social-card card-x">
+                <i class="fa-brands fa-x-twitter social-icon"></i>
+                <div class="social-name">X</div>
+                <div class="social-handle">BladeDragan</div>
+                <div class="social-arrow">Visit profile
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- Game Ranks -->
+      <div class="section" id="ranks">
+        <p class="section-label">Check my stats</p>
+        <h2 class="section-title">Game Ranks</h2>
+
+        <div class="socials-grid">
+
+            <a href="rlrank/index.html" class="rank-card" style="--card-color: #e8890a;">
+                <i class="fa-solid fa-car rank-icon"></i>
+                <div class="social-name">Rocket League</div>
+                <div class="social-handle">BladeDragan08</div>
+                <div class="social-arrow">View tracker
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="valrank/index.html" class="rank-card" style="--card-color: #ff4655;">
+                <i class="fa-solid fa-gun rank-icon"></i>
+                <div class="social-name">Valorant</div>
+                <div class="social-handle">BladeDragan#9918</div>
+                <div class="social-arrow">View tracker
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="owrank/index.html" class="rank-card" style="--card-color: #0082c8;">
+                <i class="fa-solid fa-gun rank-icon"></i>
+                <div class="social-name">Overwatch</div>
+                <div class="social-handle">BaldeDragan#2593</div>
+                <div class="social-arrow">View tracker
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+        </div>
+      </div>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <span class="footer-logo">
+            <img class="nav-logo-img" src="assets/profile_picture.png" 
+            alt="BladeDragan">
+        </span>
+        <div class="footer-icons">
+                <a href="https://www.youtube.com/@bladedragan" target="_blank" rel="noopener" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.youtube.com/@baldedragan" target="_blank" rel="noopener" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.twitch.tv/bladedragan" target="_blank" rel="noopener" aria-label="Twitch">
+                    <i class="fa-brands fa-twitch"></i></a>
+                <a href="https://www.tiktok.com/@bladedragan" target="_blank" rel="noopener" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/@bladedragan" target="_blank" rel="noopener" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.x.com/@bladedragan_" target="_blank" rel="noopener" aria-label="X">
+                    <i class="fa-brands fa-x-twitter"></i></a>
+        </div>     
+
+        <p class="footer-copy">© 2026 BladeDragan</p>
+    </footer>
+
+    <script>
+
+        // Config
+
+        const CONFIG = {
+            TWITCH_USER: 'bladedragan',
+
+            TWITCH_CLIENT_ID: '09t3oq0yzyeqghef24omt2qrv44mic',
+
+            TOAST_DELAY_MS: 4000,
+        };
+
+        // Scroll progress bar
+        const scrollBar = document.getElementById('scrollbar');
+        window.addEventListener('scroll', () => {
+            const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+            scrollBar.style.width = pct + '%';
+        }, { passive: true });
+
+        // Hero CTA Carousel
+
+        const platforms = [
+        {
+            label: 'Watch on Twitch',
+            icon: 'fa-brands fa-twitch',
+            url: 'https://www.twitch.tv/bladedragan',
+            color: '#9146ff',
+            glow: 'rgba(145,70,255,0.22)'
+        },
+        {
+            label: 'Main YouTube',
+            icon: 'fa-brands fa-youtube',
+            url: 'https://www.youtube.com/@bladedragan',
+            color: '#ff4444',
+            glow: 'rgba(255,68,68,0.22)'
+        },
+        {
+            label: 'Shorts & VODS YouTube',
+            icon: 'fa-brands fa-twitch',
+            url: 'https://www.youtube.com/@baldedragan',
+            color: '#ff4444',
+            glow: 'rgba(255,68,68,0.22)'
+        },
+        {
+            label: 'Follow on TikTok',
+            icon: 'fa-brands fa-tiktok',
+            url: 'https://www.tiktok.com/@bladedragan',
+            color: '#ff0050',
+            glow: 'rgba(255,0,80,0.22)'
+        },
+        {
+            label: 'Follow on Instagram',
+            icon: 'fa-brands fa-instagram',
+            url: 'https://www.instagram.com/bladedragan',
+            color: '#e1306c',
+            glow: 'rgba(225,48,108,0.22)'
+        },
+        {
+            label: 'Follow on X',
+            icon: 'fa-brands fa-x-twitter',
+            url: 'https://www.x.com/bladedragan_',
+            color: '#181818',
+            glow: 'rgba(232,232,240,0.15)'
+        },
+        ];
+
+        const btn = document.getElementById('carouselBtn');
+        const inner = document.getElementById('carouselInner');
+        const iconEl = document.getElementById('carouselIcon');
+        const labelEl = document.getElementById('carouselLabel');
+        const dotsEl = document.getElementById('carouselDots');
+        const glowEl = document.getElementById('heroGlow');
+
+        let current = 0;
+        let intervalID;
+
+        // Build dots
+        platforms.forEach((_, i) => {
+            const d = document.createElement('button');
+            d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            d.setAttribute('aria-label', `Switch to ${platforms[i].label}`);
+            d.addEventListener('click', () => { goTo(i); resetInterval(); });
+            dotsEl.appendChild(d);
+        });
+
+        function applyPlatform(idx) {
+            const p = platforms[idx];
+            btn.href = p.url;
+            btn.style.setProperty('--carousel-color', p.color);
+            btn.style.setProperty('--carousel-glow', `0 0 22px ${p.glow}`);
+            iconEl.className = p.icon;
+            labelEl.textContent = p.label;
+            glowEl.style.background = `radial-gradient(circle, ${p.glow} 0%, transparent 70%)`;
+            // Update dots
+            dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === idx);
+            });
+        }
+
+        function goTo(idx) {
+            inner.classList.add('fade-out');
+            setTimeout(() => {
+                current = idx;
+                applyPlatform(current);
+                inner.classList.remove('fade-out');
+                inner.classList.add('fade-in');
+                setTimeout(() => inner.classList.remove('fade-in'), 300);
+            }, 300);
+        }
+
+        function next() { goTo((current + 1) % platforms.length); }
+
+        function resetInterval() {
+            clearInterval(intervalID);
+            intervalID = setInterval(next, 4000);
+        }
+
+        // Init
+        applyPlatform(0);
+        resetInterval();
+
+        // Toast Notifications
+        const toast = document.getElementById('toast');
+        const toastIcon = document.getElementById('toastIcon');
+        const toastTitle = document.getElementById('toastTitle');
+        const toastMsg = document.getElementById('toastMsg');
+        const toastCta = document.getElementById('toastCta');
+        const toastClose = document.getElementById('toastClose');
+        const navBadge = document.getElementById('navLiveBadge');
+
+        let toastShown = false;
+
+        function showToast({ icon, title, msg, ctaLabel, ctaIcon, ctaHref, color }) {
+            toastIcon.textContent = icon;
+            toastTitle.textContent = title;
+            toastMsg.textContent = msg;
+            toastCta.href = ctaHref;
+            toastCta.innerHTML = `<i class="${ctaIcon}"></i> ${ctaLabel}`;
+            toastCta.style.background = color;
+            toast.style.setProperty('--toast-color', color);
+            toast.classList.add('show')
+        }
+
+        toastClose.addEventListener('click', () => toast.classList.remove('show'));
+
+        // Attempt Twitch live check 
+        async function checkTwitchLive() {
+            if (!CONFIG.TWITCH_CLIENT_ID) return;
+            try {
+                const tokenRes = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${CONFIG.TWITCH_CLIENT_ID}&grant_type=client_credentials`,
+                { method: 'POST'});
+                if (!tokenRes.ok) return;
+                const { access_token } = await tokenRes.json();
+
+                const streamRes = await fetch(
+                    `https://api.twitch.tv/helix/streams?user_login=${CONFIG.TWITCH_USER}`,
+                    { headers: { 'Client-ID': CONFIG.TWITCH_CLIENT_ID, 'Authorisation': `Bearer ${access_token}`} }
+                );
+                if (!streamRes.ok) return;
+                const data = await streamRes.json();
+
+                if (data.data && data.data.length > 0) {
+                    const stream = data.data[0];
+                    navBadge.classList.add('visible');
+                    if(!toastShown) {
+                        toastShown = true;
+                        setTimeout(() => showToast({
+                            icon: '🟣',
+                            title: 'BladeDragan is LIVE!',
+                            msg: stream.title || 'Streaming on Twitch right now - come watch!',
+                            ctaLabel: 'Watch Now',
+                            ctaIcon: 'fa-brands fa-twitch',
+                            ctaHref: 'https://www.twitch.tv/bladedragan',
+                            color: '#9146ff'
+                        }), CONFIG.TOAST_DELAY_MS);
+                    }
+                }
+            } catch (e) {
+                // Fails silently
+            }
+        }
+
+        checkTwitchLive();
+        setInterval(checkTwitchLive, 3 * 60 * 1000);
+    </script>
+
 </body>
 </html>
