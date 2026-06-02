@@ -229,7 +229,6 @@ body::before {
     position: absolute;
     width: 640px; height: 640px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(232,69,10,0.20) 0%, transparent 70%);
     top: -120px; right: -120px;
     pointer-events: none;
     transition: background 1s ease;
@@ -283,7 +282,7 @@ body::before {
     font-family: var(--font-display);
     font-size: clamp(40px, 6vw, 72px);
     font-weight: 800;
-    line-height: 1.05;
+    line-height: 1.15;
     letter-spacing: -2px;
     color: var(--text);
     margin-bottom: 16px;
@@ -302,6 +301,8 @@ body::before {
     flex-wrap: wrap;
 }
 
+/* Carousel */
+
 .btn-carousel {
     display: inline-flex;
     align-items: center;
@@ -319,12 +320,12 @@ body::before {
     text-decoration: none;
     position: relative;
     overflow: hidden;
-    min-width: 190px;
+    min-width: 200px;
 }
 
 .btn-carousel:hover {
     transform: translateY(-2px);
-    filter: brightness(1.1);
+    filter: brightness(1.12);
 }
 
 .btn-carousel-inner {
@@ -332,6 +333,7 @@ body::before {
     align-items: center;
     gap: 10px;
     transition: opacity 0.3s, transform 0.3s;
+    width: 100%;
 }
 
 .btn-carousel-inner.fade-out {
@@ -339,30 +341,48 @@ body::before {
     transform: translateY(8px);
 }
 
-.btn-carousel-inner.fade-in {
+/* .btn-carousel-inner.fade-in {
     opacity: 1;
     transform: translateY(0);
-}
+} */
+
+/* Carousel Dots */
 
 .carousel-dots {
     display: flex;
-    gap: 6px;
+    gap: 8px;
     align-items: center;
-    margin-left: 4px;
 }
 
 .carousel-dot {
-    width: 6px; height: 6px;
+    width: 28px; height: 28px;
     border-radius: 50%;
-    background: var(--text-muted);
+    border: 2px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,225,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--text-muted);
     transition: background 0.3s, transform 0.3s;
     cursor: pointer;
+    position: relative;
+}
+
+.carousel-dot:hover {
+    border-color: rgba(255,255,255,0.35);
+    color: var(--text);
 }
 
 .carousel-dot.active {
-    background: var(--accent);
-    transform: scale(1.4);
+    background: var(--dot-color, var(--accent));
+    border-color: var(--dot-color, var(--accent));
+    color: #fff;
+    transform: scale(1.15);
+    box-shadow: 0 0 10px var(--dot-color, var(--accent));
 }
+
+/* Buttons */
 
 .btn {
     display: inline-flex;
@@ -375,18 +395,6 @@ body::before {
     cursor: pointer;
     transition: all 0.2s;
     border: none;
-}
-
-.btn-primary {
-    background: var(--accent);
-    color: #fff;
-    box-shadow: 0 0 20px rgba(232,69,10,0.40);
-}
-
-.btn-primary:hover {
-    background: #9070ff;
-    box-shadow: 0 0 28px rgba(232,69,10,0.60);
-    transform: translateY(-1px);
 }
 
 .btn-outline {
@@ -507,6 +515,80 @@ body::before {
 .card-tiktok { --card-color: #ff0050; }
 .card-instagram { --card-color: #e1306c; }
 .card-x { --card-color: # ; }
+
+/* Rank Card */
+
+.rank-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.25s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.rank-card::before {
+    content: '';
+    position: absolute;
+    inset: 0; 
+    background: linear-gradient(135deg, var(--card-color) 0%, transparent 55%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.rank-card:hover {
+    border-color: var(--card-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.rank-card:hover::before { opacity: 0.07; }
+
+.rank-icon {
+    width: 48px; height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.rank-name {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    position: relative;
+}
+
+.rank-handle {
+    font-size: 13px;
+    color: var(--text-muted);
+    position: relative;
+}
+
+.rank-arrow {
+    margin-top: auto;
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+    transition: color 0.2s, gap 0.2s;
+}
+
+.rank-card:hover .rank-arrow {
+    color: var(--card-color);
+    gap: 8px;
+}
 
 /* Divider */
 
