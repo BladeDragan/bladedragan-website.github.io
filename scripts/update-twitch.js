@@ -8,7 +8,7 @@ const USER = "bladedragan";
 async function main() {
 
     const tokenRes = await fetch(
-        `https://id.twitch.tv/oauth2/token?client_id=${TWITCH_CLIENT_ID}&client_secret=${CLIENT_SECRET}&grant_type=client_credentials`,
+        `https://id.twitch.tv/oauth2/token?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&grant_type=client_credentials`,
     {
         method: "POST"
     });
