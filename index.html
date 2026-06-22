@@ -352,43 +352,38 @@
 
         // Attempt Twitch live check 
         async function checkTwitchLive() {
-            if (!CONFIG.TWITCH_CLIENT_ID) return;
             try {
-                const tokenRes = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${CONFIG.TWITCH_CLIENT_ID}&grant_type=client_credentials`,
-                { method: 'POST'});
-                if (!tokenRes.ok) return;
-                const { access_token } = await tokenRes.json();
+                const res = await fetch("/twitch-status.json");
 
-                const streamRes = await fetch(
-                    `https://api.twitch.tv/helix/streams?user_login=${CONFIG.TWITCH_USER}`,
-                    { headers: { 'Client-ID': CONFIG.TWITCH_CLIENT_ID, 'Authorisation': `Bearer ${access_token}`} }
-                );
-                if (!streamRes.ok) return;
-                const data = await streamRes.json();
+                if (!res.ok) return;
 
-                if (data.data && data.data.length > 0) {
-                    const stream = data.data[0];
-                    navBadge.classList.add('visible');
-                    if(!toastShown) {
+                const data = await res.json();
+
+                if (data.live) {
+                    navBadge.classList.add("visible");
+                    
+                    if (!toastShown) {
                         toastShown = true;
-                        setTimeout(() => showToast({
-                            icon: '🟣',
-                            title: 'BladeDragan is LIVE!',
-                            msg: stream.title || 'Streaming on Twitch right now - come watch!',
-                            ctaLabel: 'Watch Now',
-                            ctaIcon: 'fa-brands fa-twitch',
-                            ctaHref: 'https://www.twitch.tv/bladedragan',
-                            color: '#9146ff'
-                        }), CONFIG.TOAST_DELAY_MS);
+                        setTimeout(() => {
+                            showToast({
+                                icon: '🔴',
+                                title: 'BladeDragan is LIVE!',
+                                msg: data.title,
+                                ctaLabel: 'Watch Now',
+                                ctaIcon: 'fa-brands fa-twitch',
+                                ctaHref: data.url,
+                                color: '#9146ff'
+                            });
+                        }, CONFIG.TOAST_DELAY_MS);
                     }
                 }
             } catch (e) {
-                // Fails silently
+                console.error(e);
             }
         }
 
         checkTwitchLive();
-        setInterval(checkTwitchLive, 3 * 60 * 1000);
+
     </script>
 
 </body>
