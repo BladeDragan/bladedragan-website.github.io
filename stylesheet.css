@@ -340,11 +340,6 @@ body::before {
     transform: translateY(8px);
 }
 
-/* .btn-carousel-inner.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-} */
-
 /* Carousel Dots */
 
 .carousel-dots {
@@ -366,6 +361,7 @@ body::before {
     transition: background 0.3s, transform 0.3s;
     cursor: pointer;
     position: relative;
+    visibility: hidden;
 }
 
 .carousel-dot:hover {
@@ -514,6 +510,7 @@ body::before {
 .card-tiktok { --card-color: #ff0050; }
 .card-instagram { --card-color: #e1306c; }
 .card-x { --card-color: # ; }
+.card-discord { --card-color: #5865F2 ;}
 
 /* Rank Card */
 
