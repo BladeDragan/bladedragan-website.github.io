@@ -1,3 +1,8 @@
 {
-  "live": false
+  "live": true,
+  "title": "this is a test stream :) | i'll try to reply to chat but just setting up software etc",
+  "game": "Just Chatting",
+  "viewers": 5,
+  "started_at": "2026-08-10T15:23:59Z",
+  "url": "https://twitch.tv/bladedragan"
 }
